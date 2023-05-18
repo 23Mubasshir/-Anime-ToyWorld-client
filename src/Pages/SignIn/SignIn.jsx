@@ -95,6 +95,10 @@ const SignIn = () => {
                       </Link>
                     </p>
                   </label>
+                  {/* <-----Error and Success message-----> */}
+                  <p className=" text-green-400 font-bold
+                  " >{success}</p>
+                  <p className="text-red-400  font-bold">{error}</p>
                 </div>
                 <div className="form-control mt-6">
                   <input

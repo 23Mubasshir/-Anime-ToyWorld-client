@@ -53,13 +53,30 @@ const AuthProvider = ({ children }) => {
       return unsubscribe();
     };
   }, []);
+
+  // <-----Add photo and name----->
+  const userProfileUpdating = (user, name, photo) => {
+    return updateProfile(user, {
+      displayName: name,
+      photoURL: photo,
+    })
+      .then((result) => {
+        setUser(result.user);
+      })
+      .catch((error) => {
+        console.log("Error while updating");
+      });
+  };
+
   const authInfo = {
     user,
+    setUser,
     loading,
     createUser,
     signInWithGoogle,
     signIn,
     logOut,
+    userProfileUpdating,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

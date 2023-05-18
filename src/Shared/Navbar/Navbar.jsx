@@ -79,12 +79,14 @@ const Navbar = () => {
           {user ? (
             <Link to="/" className="mr-5">
               {user.photoURL ? (
-                <img
-                  style={{ height: "55px" }}
-                  className="rounded-full border-4 border-violet-900"
-                  src={user.photoURL}
-                  alt=""
-                />
+                <div className="tooltip" data-tip={user.displayName}>
+                  <img
+                    style={{ height: "55px" }}
+                    className="rounded-full border-4 border-violet-900"
+                    src={user.photoURL}
+                    alt={user.displayName}
+                  />
+                </div>
               ) : (
                 <FaRegUserCircle style={{ fontSize: "2.5rem" }} />
               )}
@@ -95,7 +97,10 @@ const Navbar = () => {
 
           {/* -----conditional sign in sign out----- */}
           {user ? (
-            <Link onClick={handleLogout} className="btn btn-outline font-extrabold text-[#62376c] border-4 border-[#62376c] hover:bg-[#62376c] rounded-md mr-5">
+            <Link
+              onClick={handleLogout}
+              className="btn btn-outline font-extrabold text-[#62376c] border-4 border-[#62376c] hover:bg-[#62376c] rounded-md mr-5"
+            >
               Logout
             </Link>
           ) : (

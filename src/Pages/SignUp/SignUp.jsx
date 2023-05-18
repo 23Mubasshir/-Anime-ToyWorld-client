@@ -5,7 +5,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext, useState } from "react";
 
 const SignUp = () => {
-  const { createUser,signInWithGoogle } = useContext(AuthContext);
+  const { createUser,signInWithGoogle, userProfileUpdating } = useContext(AuthContext);
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -20,7 +20,7 @@ const SignUp = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, email, photo, password);
+    // console.log(name, email, photo, password);
     if (password.length < 6) {
       setError("Password has to be least 6 characters");
       return;
@@ -28,10 +28,11 @@ const SignUp = () => {
     //  < ----- Create User ----->
     createUser(email, password)
       .then((result) => {
-        // const createdUser = result.user;
-        // console.log(createdUser);
+        const createdUser = result.user;
+        console.log(createdUser);
         setError("");
         setSuccess("User has been Created Successfully");
+        userProfileUpdating(createdUser, name, photo)
         form.reset();
       })
       .catch((error) => {
