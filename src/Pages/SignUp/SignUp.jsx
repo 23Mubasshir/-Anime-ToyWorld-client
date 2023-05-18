@@ -1,15 +1,11 @@
 import { Link } from "react-router-dom";
 import img from "../../assets/images/logo.png";
 import { FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { useContext, useState } from "react";
 
 const SignUp = () => {
-  const {
-    createUser,
-    signInWithGoogle,
-    signInWithGithub,
-    User,
-    userProfileUpdating,
-  } = useContext(AuthContext);
+  const { createUser,signInWithGoogle } = useContext(AuthContext);
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -17,6 +13,8 @@ const SignUp = () => {
   //  < ----- Regular Sign-Up ----->
   const handleSignUp = (event) => {
     event.preventDefault();
+    setSuccess("");
+    setError("");
     const form = event.target;
     const name = form.name.value;
     const photo = form.photo.value;
@@ -43,7 +41,7 @@ const SignUp = () => {
   };
 
   //  < ----- Google Sign-up ----->
-  const handleGoogleSignIn = () => {
+  const handleGoogleSignUp = () => {
     signInWithGoogle()
       .then((result) => {
         // Signed in
@@ -123,6 +121,10 @@ const SignUp = () => {
                       </Link>
                     </p>
                   </label>
+                  {/* <-----Error and Success message-----> */}
+                  <p className=" text-green-400 font-bold
+                  " >{success}</p>
+                  <p className="text-red-400  font-bold">{error}</p>
                 </div>
                 <div className="form-control mt-6">
                   <input
@@ -136,7 +138,10 @@ const SignUp = () => {
               <div className="">
                 <h1 className="text-center pt-3">OR</h1>
                 <h1 className="pb-3 text-neutral-500">Sign Up with </h1>
-                <button onClick={handleGoogleSignIn} className="btn btn-primary btn-block">
+                <button
+                  onClick={handleGoogleSignUp}
+                  className="btn btn-primary btn-block"
+                >
                   <FaGoogle />
                   <span className="mx-2"> Google</span>
                 </button>

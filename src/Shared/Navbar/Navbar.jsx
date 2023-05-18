@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  //* <-----Log-out function-----> */
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+  console.log(user);
+
   const navItems = (
     <>
       <li className="mx-2">
@@ -64,22 +75,48 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end lg:mr-20">
-        <Link to="/" className="mr-5"><FaRegUserCircle style={{ fontSize: "2.5rem" }} /></Link>
-          <Link className="btn btn-outline font-extrabold text-[#62376c] border-4 border-[#62376c] hover:bg-[#62376c] rounded-md mr-5">
-            Logout
-          </Link>
-          <Link
-            to="/sign-in"
-            className="btn btn-outline font-extrabold text-[#62376c] border-4 border-[#62376c] hover:bg-[#62376c] rounded-md mr-5"
-          >
-            Sign In
-          </Link>
-          <Link
-            to="/sign-up"
-            className="btn btn-outline font-extrabold text-[#62376c] border-4 border-[#62376c] hover:bg-[#62376c] rounded-md mr-5"
-          >
-            Sign Up
-          </Link>
+          {/* -----conditional user picture----- */}
+          {user ? (
+            <Link to="/" className="mr-5">
+              {user.photoURL ? (
+                <img
+                  style={{ height: "55px" }}
+                  className="rounded-full border-4 border-violet-900"
+                  src={user.photoURL}
+                  alt=""
+                />
+              ) : (
+                <FaRegUserCircle style={{ fontSize: "2.5rem" }} />
+              )}
+            </Link>
+          ) : (
+            <div></div>
+          )}
+
+          {/* -----conditional sign in sign out----- */}
+          {user ? (
+            <Link onClick={handleLogout} className="btn btn-outline font-extrabold text-[#62376c] border-4 border-[#62376c] hover:bg-[#62376c] rounded-md mr-5">
+              Logout
+            </Link>
+          ) : (
+            <Link
+              to="/sign-in"
+              className="btn btn-outline font-extrabold text-[#62376c] border-4 border-[#62376c] hover:bg-[#62376c] rounded-md mr-5"
+            >
+              Sign In
+            </Link>
+          )}
+          {/* -----conditional sign Up----- */}
+          {user ? (
+            <div></div>
+          ) : (
+            <Link
+              to="/sign-up"
+              className="btn btn-outline font-extrabold text-[#62376c] border-4 border-[#62376c] hover:bg-[#62376c] rounded-md mr-5"
+            >
+              Sign Up
+            </Link>
+          )}
         </div>
       </div>
     </div>
