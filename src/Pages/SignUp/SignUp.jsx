@@ -89,6 +89,7 @@ const SignUp = () => {
                     type="text"
                     placeholder="Your Photo URL"
                     className="input input-bordered"
+                    required
                   />
                 </div>
                 <div className="form-control">

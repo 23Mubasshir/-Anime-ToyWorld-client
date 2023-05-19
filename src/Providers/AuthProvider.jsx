@@ -64,7 +64,7 @@ const AuthProvider = ({ children }) => {
         setUser(result.user);
       })
       .catch((error) => {
-        console.log("Error while updating");
+        console.log("error");
       });
   };
 
