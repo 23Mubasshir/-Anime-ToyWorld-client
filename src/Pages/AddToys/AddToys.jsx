@@ -53,6 +53,7 @@ const AddToys = () => {
             confirmButtonText: "Cool",
           });
         }
+        form.reset();
       });
   };
 

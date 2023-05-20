@@ -15,7 +15,7 @@ const ErrorPage = () => {
             <h1 className="text-8xl font-bold text-[#62376c] mb-4">Meow !!!</h1>
             <h1 className="text-4xl font-bold text-[#62376c] my-1">I DESTROYED your page.</h1>
             <h1 className="text-4xl font-bold text-[#62376c] ">Get Out from here.</h1>
-            <p class="py-6 text-[#62376c] font-medium">The truth is i didn't destroyed your page. You have come to a page that doesn't exist. Now go home. </p>
+            <p className="py-6 text-[#62376c] font-medium">The truth is i didn't destroyed your page. You have come to a page that doesn't exist. Now go home. </p>
             <Link className="btn btn-lg font-bold bg-[#62376c] btn-block text-base-200" to="/">Home</Link>
           </div>
         </div>
