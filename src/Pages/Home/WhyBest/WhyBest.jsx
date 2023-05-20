@@ -6,8 +6,8 @@ import { FaBookOpen } from "react-icons/fa";
 
 const WhyBest = () => {
   return (
-    <div className=" ">
-      {/* <h1 className="font-bold text-6xl text-center mt-24 pb-12">Why we are the Best</h1> */}
+    <div className="text-[#62376c] bg-base-200 ">
+      <h1 className="font-bold text-6xl text-center mt-24 p-6 ">Why we are the Best</h1>
 
       <div className="lg:flex py-12 px-12 md:px-32 bg-base-200 grid w-full place-items-center">
         

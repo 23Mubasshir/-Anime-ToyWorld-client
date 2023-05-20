@@ -6,11 +6,11 @@ import img4 from "../../../assets/images/Pops/05.jpg"
 const Review = () => {
   return (
     <div className=" ">
-      <h1 className="font-bold text-6xl text-center mt-24 pb-12 text-[#62376c]">
-        Best Seller
+      <h1 className="font-bold text-6xl text-center mt-24 pt-12 pb-6 text-[#62376c] bg-base-200 md:mx-12 rounded-t-2xl">
+        Best Sellers
       </h1>
 
-      <div className=" py-12 px-12 md:px-32 bg-base-200  md:mx-12 mb-12 rounded-lg mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
+      <div className=" pb-12 px-12 md:px-32 bg-base-200  md:mx-12 mb-12 rounded-lg mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
 
         <div className="card w-96 bg-green-500 shadow-xl p-5 mx-6 my-5 lg:my-10 text-white">
           <figure>
