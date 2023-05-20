@@ -44,10 +44,20 @@ const Shop = () => {
           </div>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+        <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
+            {/* ----- mapping ------ */}
+          {toys?.map((toy, idk) => (
+            <ToyCard key={idk} toy={toy}></ToyCard>
+          ))}
+          </div>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+        <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
+            {/* ----- mapping ------ */}
+          {toys?.map((toy, idk) => (
+            <ToyCard key={idk} toy={toy}></ToyCard>
+          ))}
+          </div>
         </TabPanel>
       </Tabs>
     </div>
