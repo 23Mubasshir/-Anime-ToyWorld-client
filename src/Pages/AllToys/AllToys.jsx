@@ -4,6 +4,7 @@ import TableToy from "../../Shared/TableToy/TableToy";
 const AllToys = () => {
   const [toys, setToys] = useState([]);
   const [activeTab, setActiveTab] = useState('');
+//   console.log(activeTab);
 
   useEffect(() => {
     fetch(`http://localhost:5000/all-toys/${activeTab}`)
@@ -25,17 +26,17 @@ const AllToys = () => {
         <div className="text-center my-12">
         <div className=" btn-group">
           <button
-            onClick={() => handleTabClick("remote")}
+            onClick={() => handleTabClick("ascending")}
             className={`btn ${
-                activeTab == "remote" ? " btn-active" : ""
+                activeTab == "ascending" ? " btn-active" : ""
               }`}
           >
-            remote
+            Ascending
           </button>
-          <button onClick={() => handleTabClick("offline")} className={`btn ${
-                activeTab == "offline" ? " btn-active" : ""
+          <button onClick={() => handleTabClick("descending")} className={`btn ${
+                activeTab == "descending" ? " btn-active" : ""
               }`}>
-            offline
+            Descending
           </button>
         </div>
         </div>
