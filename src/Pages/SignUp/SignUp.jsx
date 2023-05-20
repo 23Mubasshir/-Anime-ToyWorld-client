@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 import img from "../../assets/images/logo.png";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { useContext, useState } from "react";
+import { useContext, useState} from "react";
 
 const SignUp = () => {
-  const { createUser,signInWithGoogle, userProfileUpdating } = useContext(AuthContext);
+  const { createUser, signInWithGoogle, userProfileUpdating } =
+    useContext(AuthContext);
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -32,7 +33,7 @@ const SignUp = () => {
         console.log(createdUser);
         setError("");
         setSuccess("User has been Created Successfully");
-        userProfileUpdating(createdUser, name, photo)
+        userProfileUpdating(createdUser, name, photo);
         form.reset();
       })
       .catch((error) => {
@@ -124,8 +125,12 @@ const SignUp = () => {
                     </p>
                   </label>
                   {/* <-----Error and Success message-----> */}
-                  <p className=" text-green-400 font-bold
-                  " >{success}</p>
+                  <p
+                    className=" text-green-400 font-bold
+                  "
+                  >
+                    {success}
+                  </p>
                   <p className="text-red-400  font-bold">{error}</p>
                 </div>
                 <div className="form-control mt-6">

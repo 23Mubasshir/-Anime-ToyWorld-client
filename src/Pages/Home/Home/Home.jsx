@@ -4,6 +4,7 @@ import WhyBest from '../WhyBest/WhyBest';
 import Review from '../Review/Review';
 import Stat from '../Stat/Stat';
 import Gallery from '../Gallery/Gallery';
+import Shop from '../Shop/Shop';
 
 const Home = () => {
     return (
@@ -11,8 +12,9 @@ const Home = () => {
             <Banner></Banner>
             <Stat></Stat>
             <Gallery></Gallery>
-            <WhyBest></WhyBest>
+            <Shop></Shop>
             <Review></Review>
+            <WhyBest></WhyBest>
         </div>
     );
 };
