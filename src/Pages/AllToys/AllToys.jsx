@@ -55,7 +55,7 @@ const AllToys = () => {
     </thead> 
     <tbody>
     {/* limited 20 data and mapping */}
-    {toys?.slice(0, 20).map((toy, idk) => (
+    {toys?.map((toy, idk) => (
           <TableToy key={idk} toy={toy}></TableToy>
         ))}
     </tbody>

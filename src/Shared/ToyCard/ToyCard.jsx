@@ -23,7 +23,7 @@ const ToyCard = ({ toy }) => {
           <div className="card-body">
           <h2 className="card-title justify-center text-4xl font-extrabold">{name}</h2>
             <p className="text-xl">Price: $ {price}</p>
-            <p className="text-xl">Rating: $ {rating}</p>
+            <p className="text-xl">Rating:  {rating}</p>
 
             <div className="card-actions justify-end">
               <button className="btn btn-block border-red-600 text-red-600 bg-slate-50 text-xl font-bold mt-5
