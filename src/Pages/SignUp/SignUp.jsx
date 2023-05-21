@@ -35,6 +35,7 @@ const SignUp = () => {
         setSuccess("User has been Created Successfully");
         userProfileUpdating(createdUser, name, photo);
         form.reset();
+        window. location. reload(false);
       })
       .catch((error) => {
         console.log(error.message);

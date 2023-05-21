@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import TableToy from "../../Shared/TableToy/TableToy";
 import { AuthContext } from "../../Providers/AuthProvider";
+import MyToyTable from "../../Shared/MyToyTable/MyToyTable";
 
 const MyToys = () => {
   const { user} = useContext(AuthContext);
@@ -28,16 +29,16 @@ const MyToys = () => {
         <div className=" btn-group">
           <button
             onClick={() => handleTabClick("ascending")}
-            className={`btn ${
+            className={`btn btn-warning ${
                 activeTab == "ascending" ? " btn-active" : ""
               }`}
           >
-            Ascending
+            Ascending by price
           </button>
-          <button onClick={() => handleTabClick("descending")} className={`btn ${
+          <button onClick={() => handleTabClick("descending")} className={`btn btn-warning ${
                 activeTab == "descending" ? " btn-active" : ""
               }`}>
-            Descending
+            Descending by price
           </button>
         </div>
         </div>
@@ -46,6 +47,8 @@ const MyToys = () => {
   <table className="table table-compact w-full">
     <thead>
       <tr>
+        <th></th> 
+        <th>#</th> 
         <th>Seller Name</th> 
         <th>Toy Name</th> 
         <th>Sub-category</th> 
@@ -56,8 +59,8 @@ const MyToys = () => {
     </thead> 
     <tbody>
     {/* limited 20 data and mapping */}
-    {toys?.map((toy, idk) => (
-          <TableToy key={idk} toy={toy}></TableToy>
+    {toys?.map((toy, index, idk) => (
+          <MyToyTable index={index} key={idk} toy={toy}></MyToyTable>
         ))}
     </tbody>
   </table>

@@ -187,7 +187,7 @@ const AddToys = () => {
         </div>
 
 
-        {/* form name and quantity row */}
+        {/* form Photo row */}
         <div className="md:flex mb-8">
           <div className="form-control md:w-1/2">
             <label className="label">
