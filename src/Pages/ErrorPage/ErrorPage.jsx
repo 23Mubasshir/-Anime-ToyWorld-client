@@ -1,8 +1,10 @@
 import React from "react";
 import img from "../../assets/images/ErrorPage.png"
 import { Link } from "react-router-dom";
+import useTitle from "../../Hooks/useTitle";
 
 const ErrorPage = () => {
+  useTitle('Anime ToyWorld | Error Page');
   return (
     <div>
       <div className="hero min-h-screen bg-base-300">

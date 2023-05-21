@@ -1,7 +1,9 @@
 import React from "react";
 import "./Blog.css";
+import useTitle from "../../Hooks/useTitle";
 
 const Blog = () => {
+  useTitle('Anime ToyWorld | Blogs');
   return (
     <div>
       <div className="question-answer-component">

@@ -10,6 +10,7 @@ import MyToys from "../Pages/MyToys/MyToys";
 import AddToys from "../Pages/AddToys/AddToys";
 import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 import ToyDetails from "../Pages/ToyDetails/ToyDetails";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -31,15 +32,15 @@ const router = createBrowserRouter([
         },
         {
           path: "/all-toys",
-          element: <AllToys/>,
+          element: <PrivateRoutes><AllToys/></PrivateRoutes>,
         },
         {
           path: "/my-toys",
-          element: <MyToys/>,
+          element: <PrivateRoutes><MyToys/></PrivateRoutes>,
         },
         {
           path: "/Add-toys",
-          element: <AddToys/>,
+          element: <PrivateRoutes><AddToys/></PrivateRoutes>,
         },
         {
           path: "/blog",
@@ -48,17 +49,17 @@ const router = createBrowserRouter([
         {
           path: '/my-toys/update-toy/:id', 
           element: <UpdateToy/>, 
-          loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
+          loader: ({params}) => fetch(`https://assignment-11-server-seven-jade.vercel.app/toy/${params.id}`)
         },
         {
           path: 'toy/:id', 
-          element: <ToyDetails/>, 
-          loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
+          element: <PrivateRoutes><ToyDetails/></PrivateRoutes>, 
+          loader: ({params}) => fetch(`https://assignment-11-server-seven-jade.vercel.app/toy/${params.id}`)
         },
         {
           path: 'all-toys/toy/:id', 
-          element: <ToyDetails/>, 
-          loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
+          element: <PrivateRoutes><ToyDetails/></PrivateRoutes>, 
+          loader: ({params}) => fetch(`https://assignment-11-server-seven-jade.vercel.app/toy/${params.id}`)
         }
       ],
     },

@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 import TableToy from "../../Shared/TableToy/TableToy";
+import useTitle from "../../Hooks/useTitle";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
   const [searchText, setSearchText] = useState("");
+  useTitle('Anime ToyWorld | All Toys');
 
   useEffect(() => {
-    fetch(`http://localhost:5000/all-toys`)
+    fetch(`https://assignment-11-server-seven-jade.vercel.app/all-toys`)
       .then((res) => res.json())
       .then((result) => {
         setToys(result);
       });
   }, []);
 
-  
-
   const handleSearch = () => {
-    fetch(`http://localhost:5000/getToysByText/${searchText}`)
+    fetch(`https://assignment-11-server-seven-jade.vercel.app/getToysByText/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

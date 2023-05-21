@@ -2,14 +2,16 @@ import React, { useContext, useEffect, useState } from "react";
 import TableToy from "../../Shared/TableToy/TableToy";
 import { AuthContext } from "../../Providers/AuthProvider";
 import MyToyTable from "../../Shared/MyToyTable/MyToyTable";
+import useTitle from "../../Hooks/useTitle";
 
 const MyToys = () => {
   const { user} = useContext(AuthContext);
   const [toys, setToys] = useState([]);
   const [activeTab, setActiveTab] = useState(' ');
+  useTitle('Anime ToyWorld | My Toys');
 //   console.log(activeTab);
   useEffect(() => {
-    fetch(`http://localhost:5000/my-toys/${user?.email}/${activeTab}`)
+    fetch(`https://assignment-11-server-seven-jade.vercel.app/my-toys/${user?.email}/${activeTab}`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result)

@@ -3,8 +3,10 @@ import img from "../../assets/images/logo.png";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext, useState} from "react";
+import useTitle from "../../Hooks/useTitle";
 
 const SignUp = () => {
+  useTitle('Anime ToyWorld | Sign Up');
   const { createUser, signInWithGoogle, userProfileUpdating } =
     useContext(AuthContext);
 

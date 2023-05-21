@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaTh } from "react-icons/fa";
+import Aos from "aos"
+import "aos/dist/aos.css"
+
 
 const Gallery = () => {
+
+  useEffect(()=>{
+    Aos.init();
+}, [])
+
   return (
     <div className="container mx-auto px-5 py-2 lg:px-32 lg:p-24 m-5 rounded-3xl bg-base-200">
-      <h1 className="text-6xl font-bold mb-6 text-[#62376c] flex"><FaTh className="me-5"/> Gallery</h1>
+      <h1 data-aos="fade-right" className="text-6xl font-bold mb-6 text-[#62376c] flex"><FaTh className="me-5"/> Gallery</h1>
       <div className="-m-1 flex flex-wrap md:-m-2">
         <div className="flex w-1/2 flex-wrap">
           <div className="w-1/2 p-1 md:p-2">

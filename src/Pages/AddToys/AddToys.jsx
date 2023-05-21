@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
+import useTitle from "../../Hooks/useTitle";
 
 const AddToys = () => {
   const { user } = useContext(AuthContext);
+  useTitle("Anime ToyWorld | Add Toys");
 
   const handleAddToy = (event) => {
     event.preventDefault();
@@ -29,13 +31,13 @@ const AddToys = () => {
       description,
       photo,
       quantity,
-      rating
+      rating,
     };
 
     console.log(newToy);
 
     // send data to the server
-    fetch("http://localhost:5000/add-toys", {
+    fetch("https://assignment-11-server-seven-jade.vercel.app/add-toys", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -61,7 +63,6 @@ const AddToys = () => {
     <div className="bg-[#F4F3F0] p-24">
       <h2 className="text-3xl font-extrabold">Add a Toy</h2>
       <form onSubmit={handleAddToy}>
-
         {/* form name and price row */}
         <div className="md:flex mb-8">
           <div className="form-control md:w-1/2">
@@ -126,7 +127,7 @@ const AddToys = () => {
         {/* form description and details row */}
         <div className="md:flex mb-8">
           <div className="form-control md:w-1/2">
-          <label className="label">
+            <label className="label">
               <span className="label-text">Detail description</span>
             </label>
             <label className="input-group">
@@ -153,8 +154,6 @@ const AddToys = () => {
             </label>
           </div>
         </div>
-
-        
 
         {/* form rating and sub-category row */}
         <div className="md:flex mb-8">
@@ -186,7 +185,6 @@ const AddToys = () => {
           </div>
         </div>
 
-
         {/* form Photo row */}
         <div className="md:flex mb-8">
           <div className="form-control md:w-1/2">
@@ -202,9 +200,7 @@ const AddToys = () => {
               />
             </label>
           </div>
-          <div className="form-control md:w-1/2 ml-4">
-            
-          </div>
+          <div className="form-control md:w-1/2 ml-4"></div>
         </div>
 
         {/* ADD Toy*/}

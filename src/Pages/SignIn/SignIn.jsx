@@ -1,13 +1,21 @@
 import img from "../../assets/images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import useTitle from "../../Hooks/useTitle";
 
 const SignIn = () => {
   const { signIn, signInWithGoogle } = useContext(AuthContext);
+  useTitle('Anime ToyWorld | Sign In');
 
-  // -----Success and error message-----
+  // ----- Navigate After login -----
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log('login page location', location)
+  const from = location.state?.from?.pathname || '/'
+
+  // -----Success and error message -----
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -26,7 +34,7 @@ const SignIn = () => {
         const loggedUser = result.user;
         // console.log(loggedUser);
         setSuccess("User has been signed in Successfully");
-        // navigate(from, { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -44,6 +52,7 @@ const SignIn = () => {
         // console.log(loggedUser);
         setError("");
         setSuccess("User has been Signed In Successfully");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         // Handle Errors here.

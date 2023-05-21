@@ -19,7 +19,7 @@ const MyToyTable = (props) => {
     }).then((result) => {
         if (result.isConfirmed) {
 
-            fetch(`http://localhost:5000/my-toys/${_id}`, {
+            fetch(`https://assignment-11-server-seven-jade.vercel.app/my-toys/${_id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
