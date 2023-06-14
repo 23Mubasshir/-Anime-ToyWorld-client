@@ -86,7 +86,7 @@ const Navbar = () => {
           {/* -----conditional user picture----- */}
           {user ? (
             <Link to="/" className="mr-5">
-              {user.photoURL ? (
+              {user ? (
                 <div className="tooltip" data-tip={user.displayName}>
                   <img
                     style={{ height: "55px" }}

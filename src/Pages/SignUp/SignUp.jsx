@@ -7,7 +7,7 @@ import useTitle from "../../Hooks/useTitle";
 
 const SignUp = () => {
   useTitle('Anime ToyWorld | Sign Up');
-  const { createUser, signInWithGoogle, userProfileUpdating } =
+  const { createUser, signInWithGoogle, userProfileUpdating, setUser } =
     useContext(AuthContext);
 
   const [error, setError] = useState("");
@@ -32,12 +32,16 @@ const SignUp = () => {
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
+        // createUser.displayName = name;
+        // createUser.photoURL = photo;
         console.log(createdUser);
         setError("");
         setSuccess("User has been Created Successfully");
-        userProfileUpdating(createdUser, name, photo);
+        userProfileUpdating(createdUser, name, photo).then(() =>{
+          setUser({...createdUser, displayName : name, photoURL : photo});
+        });
         form.reset();
-        window. location. reload(false);
+        // window. location. reload(false);
       })
       .catch((error) => {
         console.log(error.message);

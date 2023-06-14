@@ -19,7 +19,7 @@ const MyToyTable = (props) => {
     }).then((result) => {
         if (result.isConfirmed) {
 
-            fetch(`https://assignment-11-server-seven-jade.vercel.app/my-toys/${_id}`, {
+            fetch(`http://localhost:5000/my-toys/${_id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -31,7 +31,7 @@ const MyToyTable = (props) => {
                             'Your Toy has been deleted.',
                             'success'
                         )
-                        window. location. reload(false);
+                        // window. location. reload(false);
                     }
                     
                 })

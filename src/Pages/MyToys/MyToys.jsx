@@ -5,16 +5,16 @@ import MyToyTable from "../../Shared/MyToyTable/MyToyTable";
 import useTitle from "../../Hooks/useTitle";
 
 const MyToys = () => {
-  const { user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
-  const [activeTab, setActiveTab] = useState(' ');
-  useTitle('Anime ToyWorld | My Toys');
-//   console.log(activeTab);
+  const [activeTab, setActiveTab] = useState(" ");
+  useTitle("Anime ToyWorld | My Toys");
+  //   console.log(activeTab);
   useEffect(() => {
-    fetch(`https://assignment-11-server-seven-jade.vercel.app/my-toys/${user?.email}/${activeTab}`)
+    fetch(`http://localhost:5000/my-toys/${user?.email}/${activeTab}`)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result)
+        console.log(result);
         setToys(result);
       });
   }, [user, activeTab]);
@@ -28,48 +28,48 @@ const MyToys = () => {
         <h2 className="text-6xl font-bold text-center">My Toys</h2>
 
         <div className="text-center my-12">
-        <div className=" btn-group">
-          <button
-            onClick={() => handleTabClick("ascending")}
-            className={`btn btn-warning ${
+          <div className=" btn-group">
+            <button
+              onClick={() => handleTabClick("ascending")}
+              className={`btn btn-warning ${
                 activeTab == "ascending" ? " btn-active" : ""
               }`}
-          >
-            Ascending by price
-          </button>
-          <button onClick={() => handleTabClick("descending")} className={`btn btn-warning ${
+            >
+              Ascending by price
+            </button>
+            <button
+              onClick={() => handleTabClick("descending")}
+              className={`btn btn-warning ${
                 activeTab == "descending" ? " btn-active" : ""
-              }`}>
-            Descending by price
-          </button>
-        </div>
+              }`}
+            >
+              Descending by price
+            </button>
+          </div>
         </div>
 
         <div className="overflow-x-auto">
-  <table className="table table-compact w-full">
-    <thead>
-      <tr>
-        <th></th> 
-        <th>#</th> 
-        <th>Seller Name</th> 
-        <th>Toy Name</th> 
-        <th>Sub-category</th> 
-        <th>Price</th> 
-        <th>Available Quantity</th> 
-        <th>View Details</th>
-      </tr>
-    </thead> 
-    <tbody>
-    {/* limited 20 data and mapping */}
-    {toys?.map((toy, index, idk) => (
-          <MyToyTable index={index} key={idk} toy={toy}></MyToyTable>
-        ))}
-    </tbody>
-  </table>
-</div>
-
-
-        
+          <table className="table table-compact w-full">
+            <thead>
+              <tr>
+                <th></th>
+                <th>#</th>
+                <th>Seller Name</th>
+                <th>Toy Name</th>
+                <th>Sub-category</th>
+                <th>Price</th>
+                <th>Available Quantity</th>
+                <th>View Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* limited 20 data and mapping */}
+              {toys?.map((toy, index) => (
+                <MyToyTable key={index} index={index} toy={toy}></MyToyTable>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

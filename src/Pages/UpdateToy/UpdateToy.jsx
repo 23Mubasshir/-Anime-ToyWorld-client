@@ -26,7 +26,7 @@ const UpdateToy = () => {
     console.log(updatedToyInfo);
 
     // send data to the server
-    fetch(`https://assignment-11-server-seven-jade.vercel.app/update-toy/${_id}`, {
+    fetch(`http://localhost:5000/update-toy/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

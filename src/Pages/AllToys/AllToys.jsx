@@ -8,7 +8,7 @@ const AllToys = () => {
   useTitle('Anime ToyWorld | All Toys');
 
   useEffect(() => {
-    fetch(`https://assignment-11-server-seven-jade.vercel.app/all-toys`)
+    fetch(`http://localhost:5000/all-toys`)
       .then((res) => res.json())
       .then((result) => {
         setToys(result);
@@ -16,7 +16,7 @@ const AllToys = () => {
   }, []);
 
   const handleSearch = () => {
-    fetch(`https://assignment-11-server-seven-jade.vercel.app/getToysByText/${searchText}`)
+    fetch(`http://localhost:5000/getToysByText/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -57,8 +57,8 @@ const AllToys = () => {
     </thead> 
     <tbody>
     {/* limited 20 data and mapping */}
-    {toys?.map((toy, index, idk) => (
-          <TableToy index={index} key={idk} toy={toy}></TableToy>
+    {toys?.map((toy, index) => (
+          <TableToy key={index} index={index} toy={toy}></TableToy>
         ))}
     </tbody>
   </table>

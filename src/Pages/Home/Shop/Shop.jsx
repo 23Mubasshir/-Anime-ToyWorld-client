@@ -11,7 +11,7 @@ const Shop = () => {
   // console.log(activeTab);
 
   useEffect(() => {
-    fetch(`https://assignment-11-server-seven-jade.vercel.app/all-toys`)
+    fetch(`http://localhost:5000/all-toys`)
       .then((res) => res.json())
       .then((result) => {
         const newResult = result?.filter((toy) => toy.category == activeTab);

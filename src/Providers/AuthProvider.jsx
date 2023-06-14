@@ -60,12 +60,6 @@ const AuthProvider = ({ children }) => {
       displayName: name,
       photoURL: photo,
     })
-      .then((result) => {
-        setUser(result.user);
-      })
-      .catch((error) => {
-        console.log("error");
-      });
   };
 
   const authInfo = {

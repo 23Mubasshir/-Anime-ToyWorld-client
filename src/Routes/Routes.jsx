@@ -49,17 +49,17 @@ const router = createBrowserRouter([
         {
           path: '/my-toys/update-toy/:id', 
           element: <UpdateToy/>, 
-          loader: ({params}) => fetch(`https://assignment-11-server-seven-jade.vercel.app/toy/${params.id}`)
+          loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
         },
         {
           path: 'toy/:id', 
           element: <PrivateRoutes><ToyDetails/></PrivateRoutes>, 
-          loader: ({params}) => fetch(`https://assignment-11-server-seven-jade.vercel.app/toy/${params.id}`)
+          loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
         },
         {
           path: 'all-toys/toy/:id', 
           element: <PrivateRoutes><ToyDetails/></PrivateRoutes>, 
-          loader: ({params}) => fetch(`https://assignment-11-server-seven-jade.vercel.app/toy/${params.id}`)
+          loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
         }
       ],
     },
